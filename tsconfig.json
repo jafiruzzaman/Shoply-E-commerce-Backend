@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    /*==========================================  File Layouts ==========================================*/
+    "rootDir": "./src",
+    "outDir": "./dist",
+
+    /*==========================================  Environment setup & latest features ==========================================*/
+    "target": "es2023",
+    "module": "esnext",
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+
+    /*==========================================  Bundler mode ==========================================*/
+
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+
+    /*==========================================  Best Practices ==========================================*/
+    "strict": true,
+    "skipLibCheck": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+
+    /*==========================================  Strict Flags ==========================================*/
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@controller/*": ["controller/*"],
+      "@database/*": ["database/*"],
+      "@global/*": ["global/*"],
+      "@lib/*": ["lib/*"],
+      "@interface/*": ["interface/*"],
+      "@routes/*": ["routes/*"],
+      "@model/*": ["model/*"]
+    },
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
