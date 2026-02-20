@@ -1,7 +1,7 @@
 /**
  * @copyright 2026 Mohammad-Jafiruzzaman
  * @version 1.0.0
- * @file loadENV.config.ts
+ * @file env.config.ts
  */
 
 /*================================================ Node Modules ================================================*/
