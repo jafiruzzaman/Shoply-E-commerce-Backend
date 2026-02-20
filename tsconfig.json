@@ -5,7 +5,7 @@
     "outDir": "./dist",
 
     /*==========================================  Environment setup & latest features ==========================================*/
-    "target": "es2023",
+    "target": "es2022",
     "module": "esnext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
