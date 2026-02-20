@@ -5,56 +5,30 @@
  */
 
 /*================================================ Node Modules ==================================================*/
+import {
+  forgotPasswordController,
+  getMeController,
+  loginController,
+  logoutController,
+  refreshTokenController,
+  registerController,
+  resetPasswordController,
+} from "@controller/auth.controller";
 import { Router, type Request, type Response } from "express";
 
 const router: Router = Router();
 
 /*================================================ Public Routes ==================================================*/
-router.post("/register", (_: Request, res: Response) => {
-  res.status(201).json({
-    success: true,
-    message: "User registered successfully",
-  });
-});
-router.post("/login", (_: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "User loggedIn successfully",
-  });
-});
+router.post("/register", registerController);
+router.post("/login", loginController);
 /*================================================ Protected Routes ==================================================*/
-router.post("/logout", (_: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "User logout successfully",
-  });
-});
-
-router.post("/refresh", (_: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "token refresh successfully",
-  });
-});
-router.post("/forgot-password", (_: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "send Resent link to your email",
-  });
-});
-router.post("/reset-password", (_: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "Password reset successful",
-  });
-});
 // TODO: add Authenticate middleware
-router.get("/me", (_: Request, res: Response) => {
-  res.status(200).json({
-    success: true,
-    message: "Get Current User",
-  });
-});
+router.post("/logout", logoutController);
+
+router.post("/refresh", refreshTokenController);
+router.post("/forgot-password", forgotPasswordController);
+router.post("/reset-password", resetPasswordController);
+router.get("/me", getMeController);
 
 /*================================================ Export AuthRoutes ==================================================*/
 export { router as AuthRoutes };
