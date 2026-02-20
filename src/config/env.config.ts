@@ -4,9 +4,12 @@
  * @file env.config.ts
  */
 
+/*================================================ Node Modules ==================================================*/
 import { z } from "zod";
-import { envSchema } from "@validation/env.validation";
 import ms from "ms";
+
+/*================================================ Custom Modules ==================================================*/
+import { envSchema } from "@validation/env.validation";
 
 /*================================================ Parse ENV ==================================================*/
 const parsedENV = envSchema.safeParse({
