@@ -43,5 +43,10 @@ export const envSchema = z.object({
   max_upload_file: z.number(),
   upload_folder: z.string().default("Shoply"),
 
+  // Debug
+  log_level: z.string().default("debug"),
+  // Json
+  json_limit: z.string().default("50mb"),
+
   // TODO: add Stripe and SMTP later
 });
