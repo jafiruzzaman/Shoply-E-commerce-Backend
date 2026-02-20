@@ -20,7 +20,7 @@ export const connectDB = async (): Promise<void> => {
   state = "connecting";
   try {
     mongoose.set("strictQuery", true);
-    const conn = await mongoose.connect(env.mongodb_uri, {
+    const conn = await mongoose.connect(env.mongodb_uri as string, {
       dbName: env.db_name,
       autoIndex: env.node_env === "development",
       maxPoolSize: 10,
