@@ -36,8 +36,9 @@
       "@lib/*": ["lib/*"],
       "@interface/*": ["interface/*"],
       "@routes/*": ["routes/*"],
+      "@validation/*": ["validation/*"],
       "@model/*": ["model/*"]
-    },
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
