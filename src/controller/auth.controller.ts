@@ -6,6 +6,7 @@
 
 /*================================================ Node Modules ==================================================*/
 import { type NextFunction, type Request, type Response } from "express";
+import { AuthService } from "services/auth.service";
 
 /*================================================ Custom Modules ==================================================*/
 
@@ -22,9 +23,16 @@ export const registerController = async (
     });
   }
   try {
+    const user = await AuthService.register({
+      firstName,
+      lastName,
+      email,
+      password,
+    });
     return res.status(201).json({
       success: true,
       message: "User registered successfully",
+      data: user,
     });
   } catch (error) {
     if (error instanceof Error) {
