@@ -9,7 +9,6 @@
 /*================================================ Custom Modules ==================================================*/
 import { signAccessToken, signRefreshToken } from "@lib/generate-token";
 import { comparePassword, generateHashedPassword } from "@lib/password";
-import { userModel } from "@model/user.model";
 import { AuthRepository } from "repository/auth.repository";
 
 /*================================================ Export AuthService ==================================================*/
@@ -72,5 +71,8 @@ export class AuthService {
     return await AuthRepository.updateUserById(userId, {
       refreshToken: null,
     });
+  }
+  static async getMe(id: string) {
+    return await AuthRepository.findById(id);
   }
 }

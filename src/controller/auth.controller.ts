@@ -107,7 +107,7 @@ export const refreshTokenController = async (
   res: Response,
   next: NextFunction
 ) => {
-  // const userId = req.user as any;
+  const { userId } = req.user;
   try {
     return res.status(200).json({
       success: true,
@@ -125,11 +125,15 @@ export const getMeController = async (
   res: Response,
   next: NextFunction
 ) => {
-  // const userId = req.user as any;
+  const { userId } = req.user;
   try {
+    const user = await AuthService.getMe(userId.toString());
+    console.log(`user id`, user);
+
     return res.status(200).json({
       success: true,
       message: "Get Current User",
+      data: user,
     });
   } catch (error) {
     if (error instanceof Error) {
@@ -143,7 +147,7 @@ export const forgotPasswordController = async (
   res: Response,
   next: NextFunction
 ) => {
-  // const userId = req.user as any;
+  const { userId } = req.user;
   try {
     return res.status(200).json({
       success: true,
@@ -161,7 +165,7 @@ export const resetPasswordController = async (
   res: Response,
   next: NextFunction
 ) => {
-  // const userId = req.user as any;
+  const { userId } = req.user as any;
   try {
     return res.status(200).json({
       success: true,

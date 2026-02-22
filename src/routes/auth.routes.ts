@@ -26,10 +26,10 @@ router.post("/login", loginController);
 // TODO: add Authenticate middleware
 router.post("/logout", authenticate, logoutController);
 
-router.post("/refresh", refreshTokenController);
-router.post("/forgot-password", forgotPasswordController);
-router.post("/reset-password", resetPasswordController);
-router.get("/me", getMeController);
+router.post("/refresh", authenticate, refreshTokenController);
+router.post("/forgot-password", authenticate, forgotPasswordController);
+router.post("/reset-password", authenticate, resetPasswordController);
+router.get("/me", authenticate, getMeController);
 
 /*================================================ Export AuthRoutes ==================================================*/
 export { router as AuthRoutes };
