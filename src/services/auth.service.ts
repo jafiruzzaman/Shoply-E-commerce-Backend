@@ -9,6 +9,7 @@
 /*================================================ Custom Modules ==================================================*/
 import { signAccessToken, signRefreshToken } from "@lib/generate-token";
 import { comparePassword, generateHashedPassword } from "@lib/password";
+import { userModel } from "@model/user.model";
 import { AuthRepository } from "repository/auth.repository";
 
 /*================================================ Export AuthService ==================================================*/
@@ -65,5 +66,11 @@ export class AuthService {
     console.log(`user ${user}`);
 
     return { user, accessToken, refreshToken };
+  }
+
+  static async logout(userId: string) {
+    return await AuthRepository.updateUserById(userId, {
+      refreshToken: null,
+    });
   }
 }

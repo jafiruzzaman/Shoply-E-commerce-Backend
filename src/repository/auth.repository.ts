@@ -31,8 +31,11 @@ export class AuthRepository {
     );
   }
   static async updateUserById(userId: string, payload: any) {
-    return await userModel.findByIdAndUpdate(userId, {
-      $set: payload,
-    });
+    return await userModel.findByIdAndUpdate(
+      { _id: userId },
+      {
+        $set: payload,
+      }
+    );
   }
 }
