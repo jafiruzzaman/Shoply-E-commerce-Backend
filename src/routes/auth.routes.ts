@@ -15,6 +15,7 @@ import {
   resetPasswordController,
 } from "@controller/auth.controller";
 import { Router } from "express";
+import { authenticate } from "middlewares/authenticate.middleware";
 
 const router: Router = Router();
 
@@ -23,7 +24,7 @@ router.post("/register", registerController);
 router.post("/login", loginController);
 /*================================================ Protected Routes ==================================================*/
 // TODO: add Authenticate middleware
-router.post("/logout", logoutController);
+router.post("/logout", authenticate, logoutController);
 
 router.post("/refresh", refreshTokenController);
 router.post("/forgot-password", forgotPasswordController);
