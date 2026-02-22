@@ -14,7 +14,7 @@ import {
   registerController,
   resetPasswordController,
 } from "@controller/auth.controller";
-import { Router, type Request, type Response } from "express";
+import { Router } from "express";
 
 const router: Router = Router();
 
