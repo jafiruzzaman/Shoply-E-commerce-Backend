@@ -6,9 +6,10 @@
 
 /*================================================ Node Modules ==================================================*/
 import { type NextFunction, type Request, type Response } from "express";
-import { AuthService } from "services/auth.service";
 
 /*================================================ Custom Modules ==================================================*/
+import { env } from "@config/env.config";
+import { AuthService } from "services/auth.service";
 
 export const registerController = async (
   req: Request,
@@ -54,10 +55,24 @@ export const loginController = async (
     });
   }
   try {
-    return res.status(200).json({
-      success: true,
-      message: "User loggedIn successfully",
+    const { user, accessToken, refreshToken } = await AuthService.login({
+      email,
+      password,
     });
+    return res
+      .status(200)
+      .cookie("token", refreshToken, {
+        httpOnly: env.node_env === "production" ? true : false,
+        secure: true,
+        sameSite: env.node_env === "production" ? "strict" : "lax",
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+      })
+      .json({
+        success: true,
+        message: "User loggedIn successfully",
+        data: user,
+        accessToken,
+      });
   } catch (error) {
     if (error instanceof Error) {
       console.error(`Error Found in login controller`, error.message);

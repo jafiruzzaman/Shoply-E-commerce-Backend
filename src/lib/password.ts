@@ -18,7 +18,10 @@ export const generateHashedPassword = async (
   return await bcrypt.hash(password, env.salt_round);
 };
 
-export const comparePassword = async (userId: string, password: string) => {
+export const comparePassword = async (
+  userId: string,
+  password: string
+): Promise<boolean> => {
   const user: IUser | null = await userModel.findById(userId);
-  return bcrypt.compare(password, user?.password as string);
+  return await bcrypt.compare(password, user?.password as string);
 };

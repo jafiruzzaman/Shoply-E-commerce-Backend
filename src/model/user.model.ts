@@ -38,7 +38,6 @@ const userSchema = new Schema<IUser>(
       required: true,
       trim: true,
       minlength: [8, "Password at-least 8 characters"],
-      select: false,
     },
     address: [
       {
