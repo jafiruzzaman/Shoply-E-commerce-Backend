@@ -30,4 +30,15 @@ export class AuthRepository {
       }
     );
   }
+  static async updateUser(userId: string, payload: any) {
+    return await userModel.findByIdAndUpdate(
+      userId,
+      {
+        ...payload,
+      },
+      {
+        returnDocument: "before",
+      }
+    );
+  }
 }
