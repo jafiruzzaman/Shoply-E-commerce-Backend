@@ -8,7 +8,7 @@
 import { Schema, model, Types } from "mongoose";
 
 /*================================================ Custom Modules ==================================================*/
-import type { IUser } from "@interface/user.interface";
+import type { IUser } from "@modules/user/user.interface";
 
 const userSchema = new Schema<IUser>(
   {
@@ -84,6 +84,14 @@ const userSchema = new Schema<IUser>(
         ref: "Order",
       },
     ],
+    resetPasswordToken: {
+      type: String,
+      default: null,
+    },
+    resetPasswordExpires: {
+      type: Date,
+      default: null,
+    },
   },
   {
     timestamps: true,

@@ -13,7 +13,7 @@ import morgan from "morgan";
 
 /*================================================ Custom Modules ================================================*/
 import { env } from "@config/env.config";
-import { AuthRoutes } from "@routes/auth.routes";
+import { AuthRoutes } from "@modules/auth/auth.routes";
 
 /*================================================ Express App ================================================*/
 const app: Express = express();

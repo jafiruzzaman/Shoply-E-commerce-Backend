@@ -5,8 +5,8 @@
  */
 
 /*================================================ Custom Modules ==================================================*/
-import type { IUser } from "@interface/user.interface";
-import { userModel } from "@model/user.model";
+import type { IUser } from "@modules/user/user.interface";
+import { userModel } from "@modules/user/user.model";
 
 /*================================================ Export AuthRepository ==================================================*/
 export class AuthRepository {

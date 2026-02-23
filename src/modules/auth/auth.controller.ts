@@ -9,7 +9,7 @@ import { type NextFunction, type Request, type Response } from "express";
 
 /*================================================ Custom Modules ==================================================*/
 import { env } from "@config/env.config";
-import { AuthService } from "services/auth.service";
+import { AuthService } from "@modules/auth/auth.services";
 
 export const registerController = async (
   req: Request,

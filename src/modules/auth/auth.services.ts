@@ -9,7 +9,7 @@
 /*================================================ Custom Modules ==================================================*/
 import { signAccessToken, signRefreshToken } from "@lib/generate-token";
 import { comparePassword, generateHashedPassword } from "@lib/password";
-import { AuthRepository } from "repository/auth.repository";
+import { AuthRepository } from "modules/auth/auth.repository";
 
 /*================================================ Export AuthService ==================================================*/
 interface ILogin {
@@ -72,7 +72,9 @@ export class AuthService {
       refreshToken: null,
     });
   }
+
   static async getMe(id: string) {
     return await AuthRepository.findById(id);
   }
+  
 }

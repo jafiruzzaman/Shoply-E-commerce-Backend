@@ -13,9 +13,9 @@ import {
   refreshTokenController,
   registerController,
   resetPasswordController,
-} from "@controller/auth.controller";
+} from "modules/auth/auth.controller";
 import { Router } from "express";
-import { authenticate } from "middlewares/authenticate.middleware";
+import { authenticate } from "@middlewares/authenticate.middleware";
 
 const router: Router = Router();
 

@@ -30,14 +30,10 @@
     "baseUrl": "./src",
     "paths": {
       "@config/*": ["config/*"],
-      "@controller/*": ["controller/*"],
-      "@database/*": ["database/*"],
-      "@global/*": ["global/*"],
       "@lib/*": ["lib/*"],
-      "@interface/*": ["interface/*"],
-      "@routes/*": ["routes/*"],
-      "@validation/*": ["validation/*"],
-      "@model/*": ["model/*"]
+      "@middlewares/*": ["middlewares/*"],
+      "@modules/*": ["modules/*"],
+      "@types/*": ["types/*"]
     }
   },
   "include": ["src"],

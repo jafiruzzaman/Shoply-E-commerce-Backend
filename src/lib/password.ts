@@ -9,8 +9,8 @@ import bcrypt from "bcrypt";
 
 /*================================================ Custom Modules ==================================================*/
 import { env } from "@config/env.config";
-import { userModel } from "@model/user.model";
-import type { IUser } from "@interface/user.interface";
+import { userModel } from "@modules/user/user.model";
+import type { IUser } from "@modules/user/user.interface";
 
 export const generateHashedPassword = async (
   password: string

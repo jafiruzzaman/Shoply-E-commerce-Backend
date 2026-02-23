@@ -9,7 +9,7 @@ import type { Server } from "node:http";
 import process from "node:process";
 
 /*================================================ Custom Modules ================================================*/
-import { connectDB, disConnectDB } from "@database/database";
+import { connectDB, disConnectDB } from "@config/database";
 import { app } from "app";
 import { env } from "@config/env.config";
 

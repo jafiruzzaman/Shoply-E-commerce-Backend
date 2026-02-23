@@ -21,6 +21,8 @@ export interface IUser extends Document {
   wishlist: Types.ObjectId[];
   orders: Types.ObjectId[];
   reviews: Types.ObjectId[];
+  resetPasswordToken: string;
+  resetPasswordExpires: Date;
   createdAt?: Date;
   updatedAt?: Date;
 }

@@ -9,7 +9,7 @@ import { z } from "zod";
 import ms from "ms";
 
 /*================================================ Custom Modules ==================================================*/
-import { envSchema } from "@validation/env.validation";
+import { envSchema } from "@config/env.validation";
 
 /*================================================ Parse ENV ==================================================*/
 const parsedENV = envSchema.safeParse({
