@@ -13,6 +13,7 @@ import morgan from "morgan";
 
 /*================================================ Custom Modules ================================================*/
 import { env } from "@config/env.config";
+import { AuthRoutes } from "@modules/auth/auth.routes";
 
 /*================================================ Express App ================================================*/
 const app: Express = express();
@@ -45,11 +46,21 @@ app.use(
   })
 );
 
-/*================================================ helmet Configuration ================================================*/
+/*================================================ morgan Configuration ================================================*/
 app.use(morgan(env.node_env === "development" ? "dev" : "combined"));
 
-// TODO: Add Routes Here
+/*================================================ Express Json Configuration ================================================*/
+app.use(
+  express.json({
+    limit: env.json_limit,
+  })
+);
 
+/*================================================ Express Static Configuration ================================================*/
+app.use(express.static("public"));
+
+// TODO: Add Routes Here
+app.use("/api/v1/auth", AuthRoutes);
 // TODO: Add globalErrorHandler
 
 /*================================================ Export App ================================================*/
