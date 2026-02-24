@@ -9,7 +9,7 @@ import { type NextFunction, type Request, type Response } from "express";
 
 /*================================================ Custom Modules ==================================================*/
 import { env } from "@config/env.config";
-import { AuthService } from "@modules/auth/auth.services";
+import { AuthService } from "@modules/auth/auth.service";
 
 export const registerController = async (
   req: Request,
@@ -107,8 +107,12 @@ export const refreshTokenController = async (
   res: Response,
   next: NextFunction
 ) => {
-  const { userId } = req.user;
   try {
+    const token = req.cookies;
+    console.log(`cookie token`, token);
+    const payload = await AuthService.refresh(token);
+    console.log(`authservice token ${payload}`);
+
     return res.status(200).json({
       success: true,
       message: "Token refreshed successfully",

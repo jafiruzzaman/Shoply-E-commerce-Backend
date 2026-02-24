@@ -7,7 +7,11 @@
 /*================================================ Node Modules ==================================================*/
 
 /*================================================ Custom Modules ==================================================*/
-import { signAccessToken, signRefreshToken } from "@lib/generate-token";
+import {
+  signAccessToken,
+  signRefreshToken,
+  verifyRefreshToken,
+} from "@lib/generate-token";
 import { comparePassword, generateHashedPassword } from "@lib/password";
 import { AuthRepository } from "modules/auth/auth.repository";
 
@@ -76,5 +80,12 @@ export class AuthService {
   static async getMe(id: string) {
     return await AuthRepository.findById(id);
   }
-  
+  static async refresh(token: any) {
+    // Verify upcoming token
+    const verifyToken = verifyRefreshToken(token);
+    console.log(`verify token`, verifyToken);
+
+    // Verify both tokens
+    // const verify = await AuthRepository.findById(verifyToken.);
+  }
 }

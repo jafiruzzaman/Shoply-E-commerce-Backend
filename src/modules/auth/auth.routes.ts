@@ -23,9 +23,7 @@ const router: Router = Router();
 router.post("/register", registerController);
 router.post("/login", loginController);
 /*================================================ Protected Routes ==================================================*/
-// TODO: add Authenticate middleware
 router.post("/logout", authenticate, logoutController);
-
 router.post("/refresh", authenticate, refreshTokenController);
 router.post("/forgot-password", authenticate, forgotPasswordController);
 router.post("/reset-password", authenticate, resetPasswordController);
